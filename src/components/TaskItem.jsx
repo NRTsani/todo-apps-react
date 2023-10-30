@@ -35,7 +35,7 @@ function TaskItem({ task, index }) {
   }
 
   return (
-    <li className={"list-group-item d-flex align-items-center"}>
+    <li className={"list-group-item d-flex align-items-center mb-4  border border-primary"}>
       <div className="task-text w-100">
         {isEditing ? (
           <div>
@@ -52,14 +52,14 @@ function TaskItem({ task, index }) {
           </div>
         ) : (
           <div className='d-flex justify-content-between w-100'>
-            <div className='d-flex align-items-center w-75 justify-content-between'>
+            <div className='d-flex align-items-center justify-content-between' style={{gap: "16px", width: "85%"}}>
               <input
                 type="checkbox"
                 style={{width: "32px", height: "32px", Color: "#471AA0"}}
                 checked={task.completed}
                 onChange={handleToggleComplete}
               />
-              <span className="task-text h3 m-0 w-100" style={task.completed?{textDecoration:'line-through',wordBreak: "break-all"}:{textDecoration:'none', wordBreak: "break-all"}}>
+              <span className="task-text h5 m-0 w-100" style={task.completed?{textDecoration:'line-through',wordBreak: "break-all"}:{textDecoration:'none', wordBreak: "break-all"}}>
                 {task.text}
               </span>
             </div>

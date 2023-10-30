@@ -22,19 +22,14 @@ const taskSlice = createSlice({
     },
     toggleComplete: (state, action) => {
       const index = action.payload;
-      if (index >= 0 && index < state.tasks.length) {
+      if (index => 0 && index < state.tasks.length) {
         state.tasks[index].completed = !state.tasks[index].completed; // Toggle completed
       }
     },
     setFilter: (state, action) => {
       state.taskFilter = action.payload;
     },
-    toggleCompleted: (state, action) => {
-      // Toggles the completed property of all tasks
-      state.tasks.forEach((task) => {
-        task.completed = !task.completed;
-      });
-    },
+
   },
 });
 
