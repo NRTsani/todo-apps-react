@@ -4,8 +4,8 @@ const taskSlice = createSlice({
   name: 'tasks',
   initialState: {
     tasks: [
-      { text: 'Example task 1', completed: false },
-      { text: 'Example task 2', completed: true },
+      { text: 'Example task 1', completed: true },
+      { text: 'Example task 2', completed: false },
       // Add more tasks with completed property
     ],
     taskFilter: 'all',
@@ -20,10 +20,12 @@ const taskSlice = createSlice({
     editTask: (state, action) => {
       state.tasks[action.payload.index].text = action.payload.text;
     },
+    
     toggleComplete: (state, action) => {
       const index = action.payload;
-      if (index => 0 && index < state.tasks.length) {
-        state.tasks[index].completed = !state.tasks[index].completed; // Toggle completed
+      if (index !== -1 && index < state.tasks.length) {
+        state.tasks[index].completed = !state.tasks[index].completed;
+        state.tasks.push // Toggle completed
       }
     },
     setFilter: (state, action) => {
